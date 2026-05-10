@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+
+    <title>Grade 10 Classmate List</title>
+
+    <style>
+        body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: #bd4747;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+}
+
+        .card {
+            background-color: 	#d4bb8c;
+            color: black;
+            border-radius: 10px;
+        }
+
+        .title {
+            color: #0b3c78;
+            font-weight: bold;
+        }
+
+        .btn-custom {
+            background-color: #0b3c78;
+            color: white;
+        }
+
+        
+    </style>
+</head>
+
+
+<body>
+
+<div class="d-flex justify-content-center py-5">
+    <div class="card p-3 w-60">
+        <h2 class="text-center mb-4">
+            <span class="title">OBMC Sta. Ana Grade 10 Classmate List</span>
+        </h2>
+
+        <!-- IMPORTANT: onsubmit connects to Python -->
+        <form onsubmit="return false;">
+            <div class="mb-3">
+                <label>Name</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Age</label>
+                <input type="number" id="age" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Section:</label>
+                <select id="section" class="form-control mb-2" required>
+                <option value=></option>
+                <option value="ICT 10-E">ICT 10-E</option>
+                <option value="ICT 10-R">ICT 10-R</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Favorite Subject:</label>
+                <select id="subject" class="form-control mb-2" required>
+                    <option value=></option>
+                    <option value="Math">Math</option>
+                    <option value="English">English</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Social Studies">Social Studies</option>
+                    <option value="PE">PE</option>
+                    <option value="Music">Music</option>
+                    <option value="Art">Art</option>
+                    <option value="TLE">TLE</option>
+                    <option value="ICT">ICT</option>
+                    <option value="VE">VE</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Class Number</label>
+                <input type="number" id="classNum" class="form-control" required>
+            </div>
+
+            <!-- THIS is what calls your Python -->
+            <button class="btn w-100" py-click="add_student" style="background-color: #db402f;" required>
+                Add Student
+            </button>
+        </form>
+
+        <hr>
+        <div id="output"></div>
+</div>
+
+    <py-script src="main.py"></py-script>
+
+</body>
+</html>
